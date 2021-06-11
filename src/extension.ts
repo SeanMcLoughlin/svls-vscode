@@ -11,11 +11,14 @@ import {
 let client: LanguageClient;
 
 export function activate(context: ExtensionContext) {
+
+	let EXE = 'svls';
+
 	// If the extension is launched in debug mode then the debug server options are used
 	// Otherwise the run options are used
 	let serverOptions: ServerOptions = {
-		run: {command: "svls"},
-		debug: {command: "svls", args: ["--debug"]},
+		run: {command: EXE, args: []},
+		debug: {command: EXE, args: ['--log-level', 'debug']},
 	};
 
 	// Options to control the language client
@@ -26,7 +29,7 @@ export function activate(context: ExtensionContext) {
 
 	// Create the language client and start the client.
 	client = new LanguageClient(
-		'svls',
+		EXE,
 		'SystemVerilog language server',
 		serverOptions,
 		clientOptions

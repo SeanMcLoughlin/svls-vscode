@@ -34,16 +34,25 @@
 					"SystemVerilog"
 				]
 			}
-		]
+		],
+		"configuration": {
+			"title": "SVLS",
+			"properties": {
+				"SVLS.dev.logLevel": {
+					"type": "string",
+					"enum": ["off", "trace", "debug", "info", "warn", "error"],
+					"default": "off",
+					"description": "The level of logging to print to the \"output\" window."
+				}
+			}
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile",
-		"test": "node ./out/test/runTest.js",
-		"update-vscode": "vscode-install",
-		"postinstall": "vscode-install"
+		"test": "node ./out/test/runTest.js"
 	},
 	"dependencies": {
 		"vscode-languageclient": "^5.2.1"
